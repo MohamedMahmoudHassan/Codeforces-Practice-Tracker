@@ -1,5 +1,6 @@
 $(document).ready(function() {
   const page = $("#pageContent");
   page.empty();
-  new Section(page);
+  const section = new Section(page);
+  window.setTimeout(section.dataList.populate(), 2000);
 });
