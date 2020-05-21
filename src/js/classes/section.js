@@ -1,7 +1,8 @@
 class Section {
   constructor(parentEl) {
-    this.el = $("<div>");
-    this.el.addClass("section");
-    parentEl.append(this.el);
+    this.container = $("<div>");
+    this.container.addClass("section");
+
+    parentEl.append(this.container);
   }
 }
