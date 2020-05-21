@@ -1,3 +1,5 @@
 $(document).ready(function() {
-  new Section($("#pageContent"));
+  const page = $("#pageContent");
+  page.empty();
+  new Section(page);
 });
