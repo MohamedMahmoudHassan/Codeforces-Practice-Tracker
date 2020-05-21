@@ -4,6 +4,7 @@ class Section {
     this.container.addClass("section");
 
     this.header = new Header(this.container);
+    this.dataList = new DataList(this.container);
     parentEl.append(this.container);
   }
 }
