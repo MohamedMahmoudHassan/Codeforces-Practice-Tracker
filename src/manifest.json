@@ -1,0 +1,11 @@
+{
+  "name": "Codeforces Practice Tracer",
+  "version": "1.0",
+  "content_scripts": [
+    {
+      "matches": ["https://codeforces.com/profile/Princ_iple"],
+      "js": []
+    }
+  ],
+  "manifest_version": 2
+}
