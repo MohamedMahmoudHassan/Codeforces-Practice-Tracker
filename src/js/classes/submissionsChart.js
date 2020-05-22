@@ -1,21 +1,29 @@
 class SubmissionsChart {
-  constructor(parentEl) {
+  constructor(parentEl, populatingFunc) {
     this.wrapper = $("<div>");
     this.wrapper.addClass("chartWrapper");
 
-    this.canvas = $("<canvas>");
-    this.canvas[0].width = 100;
-    this.canvas[0].height = 100;
+    this.chart = $("<canvas>");
+    this.chart[0].width = 100;
+    this.chart[0].height = 100;
 
-    this.ctx = this.canvas[0].getContext("2d");
-    this.chart = new Chart(this.ctx, {
+    this.ctx = this.chart[0].getContext("2d");
+
+    this.populatingFunc = populatingFunc;
+    this.wrapper.append(this.chart);
+    parentEl.append(this.wrapper);
+  }
+
+  populate = () => {
+    const chartData = this.populatingFunc();
+    new Chart(this.ctx, {
       type: "doughnut",
       data: {
         labels: ["AC", "WA", "TLE", "Others"],
         datasets: [
           {
             label: "Submissions Statics",
-            data: [8, 5, 3, 1],
+            data: chartData,
             backgroundColor: [
               "rgba(75, 192, 192, 1)",
               "rgba(255, 99, 132, 1)",
@@ -31,8 +39,5 @@ class SubmissionsChart {
         }
       }
     });
-
-    this.wrapper.append(this.canvas);
-    parentEl.append(this.wrapper);
-  }
+  };
 }

@@ -1,1 +1,1 @@
-const populatingTest = () => 5;
+const populatingTest = () => [8, 5, 3, 1];
