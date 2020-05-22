@@ -1,8 +1,15 @@
-const populateChart = () => [8, 5, 3, 1];
+const populateChart = submissions => {
+  const all = countSubmissions(submissions, "ALL");
+  const ac = countSubmissions(submissions, "OK");
+  const wa = countSubmissions(submissions, "WRONG_ANSWER");
+  const tle = countSubmissions(submissions, "TIME_LIMIT_EXCEEDED");
+  const others = all - (ac + wa + tle);
+  return [ac, wa, tle, others];
+};
 
 const populateProblemsSolved = () => 20;
 
-const populateSubmissions = submissions => countSubmissions(submissions);
+const populateSubmissions = submissions => countSubmissions(submissions, "ALL");
 
 const populateMaxRateProblem = () => 1500;
 

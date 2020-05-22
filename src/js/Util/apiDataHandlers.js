@@ -1,5 +1,6 @@
-const countSubmissions = submissions => {
-  return submissions.length;
+const countSubmissions = (submissions, verdict) => {
+  if (verdict === "ALL") return submissions.length;
+  return submissions.filter(submission => submission.verdict === verdict).length;
 };
 
 const sliceSubmissions = (submissions, phaseStartTime, phaseEndTime) => {
