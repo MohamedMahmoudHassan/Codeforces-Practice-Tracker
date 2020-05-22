@@ -13,7 +13,11 @@ class Section {
   }
 
   populate = submissions => {
-    const sectionSubmissions = submissions;
+    const sectionSubmissions = sliceSubmissions(
+      submissions,
+      this.phaseStartDate.timeStamp / 1000,
+      this.phaseEndDate.timeStamp / 1000
+    );
     this.SubmissionsChart.populate(sectionSubmissions);
     this.dataList.populate(sectionSubmissions);
   };
