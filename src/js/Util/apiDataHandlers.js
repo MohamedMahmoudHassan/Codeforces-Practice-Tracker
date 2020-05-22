@@ -4,9 +4,20 @@ const getSubmissions = (submissions, verdict) =>
 const countSubmissions = (submissions, verdict) =>
   verdict === "ALL" ? submissions.length : getSubmissions(submissions, verdict).length;
 
-const countProblems = submissions => {
-  const ac = getSubmissions(submissions, "OK");
-  return ac.length;
+const getProblems = submissions => getSubmissions(submissions, "OK");
+const countProblems = submissions => getProblems(submissions).length;
+
+const getMaxRateProblem = submissions => {
+  const ac = getProblems(submissions);
+  if (!ac.length) return "_";
+
+  let maxProblem = ac[0].problem;
+  ac.forEach(({ problem }) => {
+    if (problem.rating && problem.rating > maxProblem.rating) maxProblem = problem;
+  });
+
+  const { index, name, rating } = maxProblem;
+  return `${index}.${name} - ${rating}`;
 };
 
 const sliceSubmissions = (submissions, phaseStartTime, phaseEndTime) => {

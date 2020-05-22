@@ -11,7 +11,7 @@ const populateProblemsSolved = submissions => countProblems(submissions);
 
 const populateSubmissions = submissions => countSubmissions(submissions, "ALL");
 
-const populateMaxRateProblem = () => 1500;
+const populateMaxRateProblem = submissions => getMaxRateProblem(submissions);
 
 const populateProblemsRatingSum = () => 10050;
 
