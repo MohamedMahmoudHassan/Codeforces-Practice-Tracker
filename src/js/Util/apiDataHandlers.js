@@ -16,8 +16,15 @@ const getMaxRateProblem = submissions => {
     if (problem.rating && problem.rating > maxProblem.rating) maxProblem = problem;
   });
 
-  const { index, name, rating } = maxProblem;
-  return `${index}.${name} - ${rating}`;
+  if (!maxProblem.rating) return "_";
+  return $("<span>").append(getProblemAsLink(maxProblem), ` - ${maxProblem.rating}`);
+};
+
+const getProblemAsLink = ({ contestId, index, name }) => {
+  const href = `https://codeforces.com/problemset/problem/${contestId}/${index}`;
+  const problemLink = $("<a>").text(`${index}. ${name}`);
+  problemLink.attr("href", href);
+  return problemLink;
 };
 
 const sliceSubmissions = (submissions, phaseStartTime, phaseEndTime) => {

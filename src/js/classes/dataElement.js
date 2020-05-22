@@ -11,7 +11,8 @@ class DataElement {
   }
 
   populate = submissions => {
-    const value = this.populatingFunc(submissions);
-    this.value.text(value);
+    const data = this.populatingFunc(submissions);
+    this.value.empty();
+    this.value.append(data);
   };
 }
