@@ -13,7 +13,7 @@ const populateSubmissions = submissions => countSubmissions(submissions, "ALL");
 
 const populateMaxRateProblem = submissions => getMaxRateProblem(submissions);
 
-const populateProblemsRatingSum = () => 10050;
+const populateProblemsRatingSum = submissions => sumProblemsRating(submissions);
 
 const populateContestsParticipation = () => 3;
 

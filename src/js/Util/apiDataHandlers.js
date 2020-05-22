@@ -20,6 +20,13 @@ const getMaxRateProblem = submissions => {
   return $("<span>").append(getProblemAsLink(maxProblem), ` - ${maxProblem.rating}`);
 };
 
+const sumProblemsRating = submissions => {
+  const ac = getProblems(submissions);
+  let ratingSum = 0;
+  ac.forEach(({ problem }) => (ratingSum += problem.rating));
+  return ratingSum;
+};
+
 const getProblemAsLink = ({ contestId, index, name }) => {
   const href = `https://codeforces.com/problemset/problem/${contestId}/${index}`;
   const problemLink = $("<a>").text(`${index}. ${name}`);
