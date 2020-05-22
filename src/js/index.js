@@ -1,16 +1,11 @@
 $(document).ready(function() {
-  const page = $("#pageContent");
-  page.empty();
+  const handle = "Princ_iple";
+  const request = new XMLHttpRequest();
+  request.open("GET", `https://codeforces.com/api/user.status?handle=${handle}`, true);
 
-  const sections = [new Section(page, 0), new Section(page, 1)];
-  sections.forEach(section => section.populate());
-
-  const addSectionBtn = $("<button>").text("Show previous phase");
-  page.append(addSectionBtn);
-  addSectionBtn.click(() => {
-    const section = new Section(page, sections.length);
-    sections.push(section);
-    section.populate();
-    page.append(addSectionBtn);
-  });
+  request.onload = function() {
+    const submissions = JSON.parse(this.response).result;
+    loadStaticsTab(submissions);
+  };
+  request.send();
 });
