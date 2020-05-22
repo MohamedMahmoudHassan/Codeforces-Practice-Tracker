@@ -5,6 +5,11 @@
   overflow: auto;
 }
 
+.headerDate {
+  font-size: x-small;
+  margin-bottom: 15px;
+}
+
 .dataElement {
   margin-top: 7px;
 }
