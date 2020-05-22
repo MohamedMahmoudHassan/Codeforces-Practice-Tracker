@@ -6,10 +6,12 @@
       "matches": ["https://codeforces.com/profile/Princ_iple"],
       "css": ["css/style.css"],
       "js": [
-        "js/jquery-3.5.1.min.js",
+        "js/lib/jquery-3.5.1.min.js",
+        "js/lib/Chart.min.js",
         "js/classes/section.js",
         "js/classes/header.js",
         "js/classes/dataList.js",
+        "js/classes/submissionsChart.js",
         "js/classes/dataElement.js",
         "js/Util/populatingTest.js",
         "js/index.js"
