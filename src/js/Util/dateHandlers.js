@@ -9,7 +9,9 @@ const getPhaseStartDate = phaseIndex => {
 };
 
 const getPhaseEndDate = phaseIndex => {
-  return getPreviousDateObject(phaseIndex * 7);
+  const phaseEndDate = getPreviousDateObject(phaseIndex * 7);
+  phaseEndDate.timeStamp + 24 * 60 * 59 * 1000;
+  return phaseEndDate;
 };
 
 const getMonthName = monthIndex => {

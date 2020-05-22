@@ -12,7 +12,7 @@ class DataList {
     parentEl.append(this.wrapper);
   }
 
-  populate = () => {
-    this.dataElements.forEach(element => element.populate());
+  populate = submissions => {
+    this.dataElements.forEach(element => element.populate(submissions));
   };
 }

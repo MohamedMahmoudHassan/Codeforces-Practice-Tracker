@@ -12,8 +12,9 @@ class Section {
     parentEl.append(this.wrapper);
   }
 
-  populate = () => {
-    this.SubmissionsChart.populate();
-    this.dataList.populate();
+  populate = submissions => {
+    const sectionSubmissions = submissions;
+    this.SubmissionsChart.populate(sectionSubmissions);
+    this.dataList.populate(sectionSubmissions);
   };
 }

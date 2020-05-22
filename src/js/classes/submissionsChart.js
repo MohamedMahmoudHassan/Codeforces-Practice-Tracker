@@ -14,8 +14,8 @@ class SubmissionsChart {
     parentEl.append(this.wrapper);
   }
 
-  populate = () => {
-    const chartData = this.populatingFunc();
+  populate = submissions => {
+    const chartData = this.populatingFunc(submissions);
     new Chart(this.ctx, {
       type: "doughnut",
       data: {

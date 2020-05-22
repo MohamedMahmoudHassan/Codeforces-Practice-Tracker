@@ -2,7 +2,7 @@ const populateChart = () => [8, 5, 3, 1];
 
 const populateProblemsSolved = () => 20;
 
-const populateSubmissions = () => 30;
+const populateSubmissions = submissions => countSubmissions(submissions);
 
 const populateMaxRateProblem = () => 1500;
 
