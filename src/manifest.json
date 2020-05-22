@@ -13,6 +13,7 @@
         "js/classes/dataList.js",
         "js/classes/submissionsChart.js",
         "js/classes/dataElement.js",
+        "js/Util/dateHandlers.js",
         "js/Util/populatingTest.js",
         "js/index.js"
       ]
