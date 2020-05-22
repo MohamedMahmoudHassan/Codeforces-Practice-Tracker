@@ -11,4 +11,9 @@ class Section {
     this.dataList = new DataList(this.wrapper);
     parentEl.append(this.wrapper);
   }
+
+  populate = () => {
+    this.SubmissionsChart.populate();
+    this.dataList.populate();
+  };
 }
