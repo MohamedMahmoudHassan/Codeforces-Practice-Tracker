@@ -16,6 +16,7 @@
         "js/Util/dateHandlers.js",
         "js/Util/dataPopulation.js",
         "js/Util/apiDataHandlers.js",
+        "js/addStaticsTab.js",
         "js/loadStaticsTab.js",
         "js/index.js"
       ]

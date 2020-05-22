@@ -1,6 +1,6 @@
 const loadStaticsTab = submissions => {
   const page = $("#pageContent");
-  page.empty();
+  page.find(".roundbox").remove();
 
   const sections = [new Section(page, 0), new Section(page, 1)];
   sections.forEach(section => section.populate(submissions));

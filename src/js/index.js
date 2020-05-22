@@ -5,7 +5,8 @@ $(document).ready(function() {
 
   request.onload = function() {
     const submissions = JSON.parse(this.response).result;
-    loadStaticsTab(submissions);
+    const staticsTab = addStaticsTab();
+    staticsTab.click(() => loadStaticsTab(submissions));
   };
   request.send();
 });
