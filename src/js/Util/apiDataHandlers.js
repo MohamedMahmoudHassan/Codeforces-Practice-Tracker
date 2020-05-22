@@ -1,6 +1,12 @@
-const countSubmissions = (submissions, verdict) => {
-  if (verdict === "ALL") return submissions.length;
-  return submissions.filter(submission => submission.verdict === verdict).length;
+const getSubmissions = (submissions, verdict) =>
+  submissions.filter(submission => submission.verdict === verdict);
+
+const countSubmissions = (submissions, verdict) =>
+  verdict === "ALL" ? submissions.length : getSubmissions(submissions, verdict).length;
+
+const countProblems = submissions => {
+  const ac = getSubmissions(submissions, "OK");
+  return ac.length;
 };
 
 const sliceSubmissions = (submissions, phaseStartTime, phaseEndTime) => {

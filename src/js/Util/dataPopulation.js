@@ -7,7 +7,7 @@ const populateChart = submissions => {
   return [ac, wa, tle, others];
 };
 
-const populateProblemsSolved = () => 20;
+const populateProblemsSolved = submissions => countProblems(submissions);
 
 const populateSubmissions = submissions => countSubmissions(submissions, "ALL");
 
@@ -18,5 +18,3 @@ const populateProblemsRatingSum = () => 10050;
 const populateContestsParticipation = () => 3;
 
 const populateVirtualsParticipation = () => 1;
-
-const populatingTest = () => 7;
