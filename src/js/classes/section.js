@@ -1,11 +1,11 @@
 class Section {
   constructor(parentEl) {
-    this.container = $("<div>");
-    this.container.addClass("section");
+    this.wrapper = $("<div>");
+    this.wrapper.addClass("sectionWrapper");
 
-    this.SubmissionsChart = new SubmissionsChart(this.container, populatingTest);
-    this.header = new Header(this.container);
-    this.dataList = new DataList(this.container);
-    parentEl.append(this.container);
+    this.SubmissionsChart = new SubmissionsChart(this.wrapper, populatingTest);
+    this.header = new Header(this.wrapper);
+    this.dataList = new DataList(this.wrapper);
+    parentEl.append(this.wrapper);
   }
 }
