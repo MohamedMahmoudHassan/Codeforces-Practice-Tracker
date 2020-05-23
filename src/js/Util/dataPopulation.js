@@ -15,6 +15,6 @@ const populateMaxRateProblem = submissions => getMaxRateProblem(submissions);
 
 const populateProblemsRatingSum = submissions => sumProblemsRating(submissions);
 
-const populateContestsParticipation = () => 3;
+const populateContestsParticipation = submissions => countContests(submissions, "CONTESTANT");
 
-const populateVirtualsParticipation = () => 1;
+const populateVirtualsParticipation = submissions => countContests(submissions, "VIRTUAL");

@@ -27,6 +27,16 @@ const sumProblemsRating = submissions => {
   return ratingSum;
 };
 
+const countContests = (submissions, participantType) => {
+  const contests = [];
+  submissions.forEach(submission => {
+    if (submission.author.participantType === participantType)
+      if (!contests.length || submission.contestId !== contests[contests.length - 1].contestId)
+        contests.push(submission);
+  });
+  return contests.length;
+};
+
 const getProblemAsLink = ({ contestId, index, name }) => {
   const href = `https://codeforces.com/problemset/problem/${contestId}/${index}`;
   const problemLink = $("<a>").text(`${index}. ${name}`);
