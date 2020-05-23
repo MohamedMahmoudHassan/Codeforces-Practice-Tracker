@@ -2,6 +2,7 @@ class DataList {
   constructor(parentEl) {
     this.wrapper = $("<ul>");
     this.dataElements = [
+      new DataElement(this.wrapper, "Max Rating", populateUserMaxRating),
       new DataElement(this.wrapper, "Problems Solved", populateProblemsSolved),
       new DataElement(this.wrapper, "Submissions", populateSubmissions),
       new DataElement(this.wrapper, "Max Rate Problem", populateMaxRateProblem),

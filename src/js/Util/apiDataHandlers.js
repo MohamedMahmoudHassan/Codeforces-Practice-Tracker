@@ -50,6 +50,13 @@ const countContests = (submissions, participantType) => {
   return contests.length;
 };
 
+const getUserMaxRating = (ratings, currentRating) => {
+  ratings.forEach(({ newRating }) => {
+    if (currentRating === "Unrated" || currentRating < newRating) currentRating = newRating;
+  });
+  return currentRating;
+};
+
 const getProblemAsLink = ({ contestId, index, name }) => {
   const href = `https://codeforces.com/problemset/problem/${contestId}/${index}`;
   const problemLink = $("<a>").text(`${index}. ${name}`);
@@ -58,7 +65,7 @@ const getProblemAsLink = ({ contestId, index, name }) => {
 };
 
 const sliceSubmissions = (submissions, phaseStartTime, phaseEndTime) =>
-  ratings.filter(
+  submissions.filter(
     ({ creationTimeSeconds }) =>
       creationTimeSeconds >= phaseStartTime && creationTimeSeconds <= phaseEndTime
   );
@@ -69,8 +76,16 @@ const sliceRatings = (ratings, phaseStartTime, phaseEndTime) =>
       ratingUpdateTimeSeconds >= phaseStartTime && ratingUpdateTimeSeconds <= phaseEndTime
   );
 
+const getCurrentRating = (ratings, phaseStartTime) => {
+  const prevRatings = ratings.filter(
+    ({ ratingUpdateTimeSeconds }) => ratingUpdateTimeSeconds < phaseStartTime
+  );
+  return prevRatings.length ? prevRatings[prevRatings.length - 1].newRating : "Unrated";
+};
+
 const sliceAPIData = (apiData, phaseStartTime, phaseEndTime) => {
   const submissions = sliceSubmissions(apiData.submissions, phaseStartTime, phaseEndTime);
   const ratings = sliceRatings(apiData.ratings, phaseStartTime, phaseEndTime);
-  return { submissions, ratings };
+  const currentRating = getCurrentRating(apiData.ratings, phaseStartTime);
+  return { submissions, ratings, currentRating };
 };

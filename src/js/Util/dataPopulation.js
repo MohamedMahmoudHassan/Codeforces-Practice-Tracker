@@ -7,6 +7,9 @@ const populateChart = submissions => {
   return [ac, wa, tle, others];
 };
 
+const populateUserMaxRating = ({ ratings, currentRating }) =>
+  getUserMaxRating(ratings, currentRating);
+
 const populateProblemsSolved = ({ submissions }) => countProblems(submissions);
 
 const populateSubmissions = ({ submissions }) => countSubmissions(submissions, "ALL");
