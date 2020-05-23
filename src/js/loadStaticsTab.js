@@ -1,8 +1,9 @@
 const loadStaticsTab = apiData => {
   const page = $("#pageContent");
-  page.find(".roundbox").remove();
-  page.find(".sectionWrapper").remove();
-  page.find("button").remove();
+  const tabsBar = page.find(".second-level-menu");
+  const scripts = page.find("script");
+  page.empty();
+  page.append(tabsBar, scripts);
 
   const sections = [new Section(page, 0), new Section(page, 1)];
   sections.forEach(section => section.populate(apiData));
