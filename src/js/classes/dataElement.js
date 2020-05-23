@@ -10,8 +10,8 @@ class DataElement {
     parentEl.append(this.title);
   }
 
-  populate = submissions => {
-    const data = this.populatingFunc(submissions);
+  populate = apiData => {
+    const data = this.populatingFunc(apiData);
     this.value.empty();
     this.value.append(data);
   };

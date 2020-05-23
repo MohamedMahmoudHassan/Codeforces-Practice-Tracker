@@ -68,3 +68,15 @@ const sliceSubmissions = (submissions, phaseStartTime, phaseEndTime) => {
 
   return result;
 };
+
+const sliceRatings = (ratings, phaseStartTime, phaseEndTime) =>
+  ratings.filter(
+    ({ ratingUpdateTimeSeconds }) =>
+      ratingUpdateTimeSeconds >= phaseStartTime && ratingUpdateTimeSeconds <= phaseEndTime
+  );
+
+const sliceAPIData = (apiData, phaseStartTime, phaseEndTime) => {
+  const submissions = sliceSubmissions(apiData.submissions, phaseStartTime, phaseEndTime);
+  const ratings = sliceRatings(apiData.ratings, phaseStartTime, phaseEndTime);
+  return { submissions, ratings };
+};

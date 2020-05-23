@@ -7,14 +7,14 @@ const populateChart = submissions => {
   return [ac, wa, tle, others];
 };
 
-const populateProblemsSolved = submissions => countProblems(submissions);
+const populateProblemsSolved = ({ submissions }) => countProblems(submissions);
 
-const populateSubmissions = submissions => countSubmissions(submissions, "ALL");
+const populateSubmissions = ({ submissions }) => countSubmissions(submissions, "ALL");
 
-const populateMaxRateProblem = submissions => getMaxRateProblem(submissions);
+const populateMaxRateProblem = ({ submissions }) => getMaxRateProblem(submissions);
 
-const populateProblemsRatingSum = submissions => sumProblemsRating(submissions);
+const populateProblemsRatingSum = ({ submissions }) => sumProblemsRating(submissions);
 
-const populateContestsParticipation = submissions => countContests(submissions, "CONTESTANT");
+const populateContestsParticipation = ({ submissions }) => countContests(submissions, "CONTESTANT");
 
-const populateVirtualsParticipation = submissions => countContests(submissions, "VIRTUAL");
+const populateVirtualsParticipation = ({ submissions }) => countContests(submissions, "VIRTUAL");

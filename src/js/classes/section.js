@@ -12,13 +12,13 @@ class Section {
     parentEl.append(this.wrapper);
   }
 
-  populate = submissions => {
-    const sectionSubmissions = sliceSubmissions(
-      submissions,
+  populate = apiData => {
+    const sectionAPIData = sliceAPIData(
+      apiData,
       this.phaseStartDate.timeStamp / 1000,
       this.phaseEndDate.timeStamp / 1000
     );
-    this.SubmissionsChart.populate(sectionSubmissions);
-    this.dataList.populate(sectionSubmissions);
+    this.SubmissionsChart.populate(sectionAPIData.submissions);
+    this.dataList.populate(sectionAPIData);
   };
 }

@@ -1,7 +1,7 @@
 $(document).ready(function() {
   const handle = $("h1 a").text();
-  connectToAPI(handle).then(submissions => {
+  connectToAPI(handle).then(apiData => {
     const staticsTab = addStaticsTab();
-    staticsTab.click(() => loadStaticsTab(submissions));
+    staticsTab.click(() => loadStaticsTab(apiData));
   });
 });
