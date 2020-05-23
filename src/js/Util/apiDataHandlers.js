@@ -57,17 +57,11 @@ const getProblemAsLink = ({ contestId, index, name }) => {
   return problemLink;
 };
 
-const sliceSubmissions = (submissions, phaseStartTime, phaseEndTime) => {
-  const result = [];
-
-  for (let i = 0; i < submissions.length; i++) {
-    const time = submissions[i].creationTimeSeconds;
-    if (time < phaseStartTime) break;
-    if (time <= phaseEndTime) result.push(submissions[i]);
-  }
-
-  return result;
-};
+const sliceSubmissions = (submissions, phaseStartTime, phaseEndTime) =>
+  ratings.filter(
+    ({ creationTimeSeconds }) =>
+      creationTimeSeconds >= phaseStartTime && creationTimeSeconds <= phaseEndTime
+  );
 
 const sliceRatings = (ratings, phaseStartTime, phaseEndTime) =>
   ratings.filter(
