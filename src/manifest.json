@@ -18,6 +18,7 @@
         "js/Util/apiDataHandlers.js",
         "js/addStaticsTab.js",
         "js/loadStaticsTab.js",
+        "js/connectToAPI.js",
         "js/index.js"
       ]
     }
