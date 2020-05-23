@@ -4,7 +4,19 @@ const getSubmissions = (submissions, verdict) =>
 const countSubmissions = (submissions, verdict) =>
   verdict === "ALL" ? submissions.length : getSubmissions(submissions, verdict).length;
 
-const getProblems = submissions => getSubmissions(submissions, "OK");
+const isSameProblem = (p1, p2) => p1.name !== p2.name;
+
+const removeDuplicateProblems = problems => {
+  problems.sort((a, b) => a.problem.name < b.problem.name);
+  return problems.filter(
+    (problem, index) => !index || !isSameProblem(problems[index - 1], problem)
+  );
+};
+
+const getProblems = submissions => {
+  const problems = getSubmissions(submissions, "OK");
+  return removeDuplicateProblems(problems);
+};
 const countProblems = submissions => getProblems(submissions).length;
 
 const getMaxRateProblem = submissions => {
