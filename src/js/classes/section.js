@@ -1,5 +1,5 @@
 class Section {
-  constructor(parentEl, phaseIndex) {
+  constructor(parentEl, phaseIndex, prevSection) {
     this.wrapper = $("<div>");
     this.wrapper.addClass("sectionWrapper");
 
@@ -9,6 +9,8 @@ class Section {
     this.SubmissionsChart = new SubmissionsChart(this.wrapper, populateChart);
     this.header = new Header(this.wrapper, phaseIndex, this.phaseStartDate, this.phaseEndDate);
     this.dataList = new DataList(this.wrapper);
+
+    this.prevSection = prevSection;
     parentEl.append(this.wrapper);
   }
 
@@ -20,5 +22,8 @@ class Section {
     );
     this.SubmissionsChart.populate(sectionAPIData.submissions);
     this.dataList.populate(sectionAPIData);
+    if (this.prevSection) this.prevSection.compare(this);
   };
+
+  compare = prevSection => this.dataList.compare(prevSection.dataList);
 }

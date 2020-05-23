@@ -19,6 +19,14 @@
   margin-top: 7px;
 }
 
+.dataElement .up{
+  color: green;
+}
+
+.dataElement .down{
+  color: red;
+}
+
 .chartWrapper {
   padding: 3px;
   height: 225px;
