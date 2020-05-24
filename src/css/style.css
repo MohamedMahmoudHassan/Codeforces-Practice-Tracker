@@ -19,11 +19,19 @@
   margin-top: 7px;
 }
 
-.dataElement .up{
+.dataElement span {
+  font-weight: bold;
+}
+
+.dataElement a {
+  font-weight: normal;
+}
+
+.dataElement .up {
   color: green;
 }
 
-.dataElement .down{
+.dataElement .down {
   color: red;
 }
 
