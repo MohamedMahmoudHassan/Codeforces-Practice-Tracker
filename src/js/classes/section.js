@@ -20,6 +20,8 @@ class Section {
       this.phaseStartDate.timeStamp / 1000,
       this.phaseEndDate.timeStamp / 1000
     );
+    this.isLastSection = sectionAPIData.isLastSection;
+
     this.SubmissionsChart.populate(sectionAPIData.submissions);
     this.dataList.populate(sectionAPIData);
     if (this.prevSection) this.prevSection.compare(this);

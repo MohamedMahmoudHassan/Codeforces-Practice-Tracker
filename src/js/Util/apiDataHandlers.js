@@ -87,5 +87,7 @@ const sliceAPIData = (apiData, phaseStartTime, phaseEndTime) => {
   const submissions = sliceSubmissions(apiData.submissions, phaseStartTime, phaseEndTime);
   const ratings = sliceRatings(apiData.ratings, phaseStartTime, phaseEndTime);
   const currentRating = getCurrentRating(apiData.ratings, phaseStartTime);
-  return { submissions, ratings, currentRating };
+  const isLastSection =
+    phaseStartTime <= apiData.submissions[apiData.submissions.length - 1].creationTimeSeconds;
+  return { submissions, ratings, currentRating, isLastSection };
 };

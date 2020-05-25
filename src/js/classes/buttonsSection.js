@@ -13,6 +13,6 @@ class ButtonsSection {
     const section = new Section(page, sections.length, sections[sections.length - 1]);
     sections.push(section);
     section.populate(apiData);
-    page.append(this.wrapper);
+    section.isLastSection ? this.wrapper.remove() : page.append(this.wrapper);
   };
 }
