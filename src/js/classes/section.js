@@ -21,6 +21,7 @@ class Section {
       this.phaseEndDate.timeStamp / 1000
     );
     this.isLastSection = sectionAPIData.isLastSection;
+    this.activeSection = sectionAPIData.submissions.length > 0;
 
     this.SubmissionsChart.populate(sectionAPIData.submissions);
     this.dataList.populate(sectionAPIData);

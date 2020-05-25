@@ -10,6 +10,10 @@
   overflow: auto;
 }
 
+.buttonsSection button {
+  margin-right: 5px;
+}
+
 .headerDate {
   font-size: small;
   margin-bottom: 15px;
