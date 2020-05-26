@@ -1,6 +1,7 @@
 {
-  "name": "Codeforces Practice Tracer",
-  "version": "1.0.0",
+  "manifest_version": 2,
+  "name": "Codeforces Practice Tracker",
+  "version": "1.0.1",
   "content_scripts": [
     {
       "matches": ["https://codeforces.com/profile/*"],
@@ -24,10 +25,10 @@
       ]
     }
   ],
-  "manifest_version": 2,
   "icons": {
     "128": "img/icon128.png",
     "48": "img/icon48.png",
     "16": "img/icon16.png"
-  }
+  },
+  "description": "Track your practice progress on Codeforces."
 }
