@@ -33,11 +33,13 @@ const getMaxRateProblem = submissions => {
   return $("<span>").append(getProblemAsLink(maxProblem), ` - ${maxProblem.rating}`);
 };
 
-const sumProblemsRating = submissions => {
+const getProblemsAverageRate = submissions => {
   const ac = getProblems(submissions);
+  if (!ac.length) return 0;
+
   let ratingSum = 0;
-  ac.forEach(({ problem }) => (ratingSum += problem.rating));
-  return ratingSum;
+  ac.forEach(({ problem }) => (ratingSum += problem.rating ? problem.rating : 0));
+  return Math.round(ratingSum / ac.length / 100) * 100;
 };
 
 const countContests = (submissions, participantType) => {

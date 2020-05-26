@@ -16,7 +16,7 @@ const populateSubmissions = ({ submissions }) => countSubmissions(submissions, "
 
 const populateMaxRateProblem = ({ submissions }) => getMaxRateProblem(submissions);
 
-const populateProblemsRatingSum = ({ submissions }) => sumProblemsRating(submissions);
+const populateProblemsAverageRate = ({ submissions }) => getProblemsAverageRate(submissions);
 
 const populateContestsParticipation = ({ submissions }) => countContests(submissions, "CONTESTANT");
 
