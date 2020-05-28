@@ -1,4 +1,4 @@
-# Codeforces-Practice-Tracer
+# Codeforces-Practice-Tracker
 A chrome extension that helps codeforces users to track their practice progress through time phases (currently time phase is 7 days).
 It can be useful also for competitive programming trainers who want to keep updates about their trainees.
 
