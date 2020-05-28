@@ -13,3 +13,6 @@ It can be useful also for competitive programming trainers who want to keep upda
 ### More features: 
   - Show each phase and compare it with previous one.
   - Skip inactive phases.
+
+### You can try it here: 
+https://chrome.google.com/webstore/detail/codeforces-practice-track/cnahgdhboflcnojgmeehhhfeoojifonm
