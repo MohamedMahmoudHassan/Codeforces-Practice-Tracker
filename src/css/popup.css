@@ -1,0 +1,12 @@
+.warning {
+  color: red;
+  display: none;
+}
+
+.active {
+  display: block;
+}
+
+.wrapper {
+  width: 150px;
+}

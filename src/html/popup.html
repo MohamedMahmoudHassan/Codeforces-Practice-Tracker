@@ -3,11 +3,15 @@
   <head>
     <script src="../js/lib/jquery-3.5.1.min.js"></script>
     <script src="../js/popup.js"></script>
+    <link href="../css/popup.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <h4>Phase period: <span id="phasePeriod">7</span> days</h4>
-    <h4>Change phase period:</h4>
-    <input type="text" id="newPhasePeriod" />
-    <input type="submit" id="changePhasePeriod" />
+    <div class="wrapper">
+      <h4>Phase period: <span id="phasePeriod">7</span> days</h4>
+      <h4>Change phase period:</h4>
+      <input type="number" id="newPhasePeriod" min="1" max="365" />
+      <input type="submit" id="changePhasePeriod" />
+      <h4 class="warning">period should be between 1 : 365 days</h4>
+    </div>
   </body>
 </html>
