@@ -1,12 +1,7 @@
-const loadStaticsTab = apiData => {
-  const page = $("#pageContent");
-  page.find(".roundbox").remove();
-  page.find(".sectionWrapper").remove();
-  page.find("button").remove();
-
-  const sections = [new Section(page, 7, 0)];
-  sections.push(new Section(page, 7, 1, sections[0]));
+const loadStaticsTab = (parentEl, apiData, phaseTime) => {
+  const sections = [new Section(parentEl, phaseTime, 0)];
+  sections.push(new Section(parentEl, phaseTime, 1, sections[0]));
   sections.forEach(section => section.populate(apiData));
 
-  new ButtonsSection(page, sections, apiData);
+  new ButtonsSection(parentEl, sections, apiData);
 };
