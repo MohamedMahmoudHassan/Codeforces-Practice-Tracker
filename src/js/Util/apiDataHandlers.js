@@ -5,9 +5,14 @@ const countSubmissions = (submissions, verdict) =>
   verdict === "ALL" ? submissions.length : getSubmissions(submissions, verdict).length;
 
 const isSameProblem = (p1, p2) => p1.name === p2.name && Math.abs(p1.contestId - p2.contestId) <= 1;
-
 const removeDuplicateProblems = submissions => {
-  submissions.sort((a, b) => a.problem.name < b.problem.name);
+  submissions.sort((a, b) =>
+    a.problem.name === b.problem.name
+      ? a.problem.contestId - b.problem.contestId
+      : a.problem.name < b.problem.name
+      ? -1
+      : 1
+  );
   return submissions.filter(
     ({ problem }, index) => !index || !isSameProblem(submissions[index - 1].problem, problem)
   );
