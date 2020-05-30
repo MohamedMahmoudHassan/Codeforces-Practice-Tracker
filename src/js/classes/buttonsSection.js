@@ -7,7 +7,7 @@ class ButtonsSection {
     this.addSectionBtn = $("<button>").text("Show previous phase");
     this.addActiveSectionBtn = $("<button>").text("Show previous active phase");
 
-    if (sections.length === 2) {
+    if (sections.length === 2 && !sections[1].isLastSection) {
       this.wrapper.append(this.addSectionBtn);
       this.wrapper.append(this.addActiveSectionBtn);
     } else this.wrapper.append(this.buttonsAlt);
