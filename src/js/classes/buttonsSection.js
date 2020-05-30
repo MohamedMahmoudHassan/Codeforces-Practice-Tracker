@@ -2,13 +2,15 @@ class ButtonsSection {
   constructor(parentEl, sections, apiData, phaseTime) {
     this.wrapper = $("<div>");
     this.wrapper.addClass("buttonsSection");
-    this.buttonsAlt = $("<h4>").text("There is no older phases.");
+    this.buttonsAlt = $("<h4>").text("There are no older phases.");
 
     this.addSectionBtn = $("<button>").text("Show previous phase");
     this.addActiveSectionBtn = $("<button>").text("Show previous active phase");
 
-    this.wrapper.append(this.addSectionBtn);
-    this.wrapper.append(this.addActiveSectionBtn);
+    if (sections.length === 2) {
+      this.wrapper.append(this.addSectionBtn);
+      this.wrapper.append(this.addActiveSectionBtn);
+    } else this.wrapper.append(this.buttonsAlt);
     parentEl.append(this.wrapper);
 
     this.addSectionBtn.click(() => this.addSection(parentEl, sections, apiData, phaseTime));
