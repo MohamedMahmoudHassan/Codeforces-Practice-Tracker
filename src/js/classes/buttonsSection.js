@@ -2,6 +2,7 @@ class ButtonsSection {
   constructor(parentEl, sections, apiData, phaseTime) {
     this.wrapper = $("<div>");
     this.wrapper.addClass("buttonsSection");
+    this.buttonsAlt = $("<h4>").text("There is no older phases.");
 
     this.addSectionBtn = $("<button>").text("Show previous phase");
     this.addActiveSectionBtn = $("<button>").text("Show previous active phase");
@@ -20,7 +21,12 @@ class ButtonsSection {
     const section = new Section(page, phaseTime, sections.length, sections[sections.length - 1]);
     sections.push(section);
     section.populate(apiData);
-    section.isLastSection ? this.wrapper.remove() : page.append(this.wrapper);
+    if (section.isLastSection) {
+      this.addSectionBtn.remove();
+      this.addActiveSectionBtn.remove();
+      this.wrapper.append(this.buttonsAlt);
+    }
+    page.append(this.wrapper);
     return section;
   };
 
