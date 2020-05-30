@@ -6,10 +6,8 @@ $(document).ready(function() {
 
   staticsTabButton.click(() => {
     page.find(".roundbox").remove();
-    page.find(".sectionWrapper").remove();
-    page.find("button").remove();
     page.append(staticsTab);
   });
 
-  connectToAPI(handle).then(apiData => loadStaticsTab(staticsTab, apiData, 7));
+  fetchAPIData(handle).then(apiData => loadStaticsTab(staticsTab, apiData, 7));
 });

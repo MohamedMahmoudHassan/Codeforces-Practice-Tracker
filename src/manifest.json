@@ -20,7 +20,7 @@
         "js/Util/apiDataHandlers.js",
         "js/addStaticsTabButton.js",
         "js/loadStaticsTab.js",
-        "js/connectToAPI.js",
+        "js/fetchAPIData.js",
         "js/index.js"
       ]
     }
