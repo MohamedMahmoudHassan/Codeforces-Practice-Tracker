@@ -3,6 +3,7 @@ $(document).ready(function() {
   const page = $("#pageContent");
   const staticsTabButton = addStaticsTabButton();
   const staticsTab = $("<div>");
+  staticsTab.append(addLoadingMessage());
 
   staticsTabButton.click(() => {
     page.find(".roundbox").remove();

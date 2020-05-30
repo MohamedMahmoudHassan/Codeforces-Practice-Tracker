@@ -1,4 +1,5 @@
 const loadStaticsTab = (parentEl, apiData, phaseTime) => {
+  parentEl.find("div").remove();
   const sections = [];
   if (apiData.submissions.length) {
     sections.push(new Section(parentEl, phaseTime, 0));

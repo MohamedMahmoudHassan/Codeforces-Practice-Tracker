@@ -19,6 +19,7 @@
         "js/Util/dataPopulation.js",
         "js/Util/apiDataHandlers.js",
         "js/addStaticsTabButton.js",
+        "js/addLoadingMessage.js",
         "js/loadStaticsTab.js",
         "js/fetchAPIData.js",
         "js/index.js"
