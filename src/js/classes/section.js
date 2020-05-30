@@ -1,10 +1,10 @@
 class Section {
-  constructor(parentEl, phaseIndex, prevSection) {
+  constructor(parentEl, phaseTime, phaseIndex, prevSection) {
     this.wrapper = $("<div>");
     this.wrapper.addClass("sectionWrapper");
 
-    this.phaseStartDate = getPhaseStartDate(phaseIndex);
-    this.phaseEndDate = getPhaseEndDate(phaseIndex);
+    this.phaseStartDate = getPhaseStartDate(phaseIndex, phaseTime);
+    this.phaseEndDate = getPhaseEndDate(phaseIndex, phaseTime);
 
     this.SubmissionsChart = new SubmissionsChart(this.wrapper, populateChart);
     this.header = new Header(this.wrapper, phaseIndex, this.phaseStartDate, this.phaseEndDate);

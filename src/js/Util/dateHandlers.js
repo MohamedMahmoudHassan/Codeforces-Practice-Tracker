@@ -4,12 +4,12 @@ const getPreviousDateObject = daysNumber => {
   return getDateObject(resultDate);
 };
 
-const getPhaseStartDate = phaseIndex => {
-  return getPreviousDateObject(6 + phaseIndex * 7);
+const getPhaseStartDate = (phaseIndex, phaseTime) => {
+  return getPreviousDateObject(phaseTime - 1 + phaseIndex * phaseTime);
 };
 
-const getPhaseEndDate = phaseIndex => {
-  const phaseEndDate = getPreviousDateObject(phaseIndex * 7);
+const getPhaseEndDate = (phaseIndex, phaseTime) => {
+  const phaseEndDate = getPreviousDateObject(phaseIndex * phaseTime);
   phaseEndDate.timeStamp += 24 * 60 * 60 * 999;
   return phaseEndDate;
 };
