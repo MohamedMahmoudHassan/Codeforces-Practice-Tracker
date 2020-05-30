@@ -1,4 +1,4 @@
-const addStaticsTab = () => {
+const addStaticsTabButton = () => {
   const staticsTab = $("<li>");
 
   const tabTitle = $("<a>").text("Statics");
