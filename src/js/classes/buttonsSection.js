@@ -1,5 +1,5 @@
 class ButtonsSection {
-  constructor(parentEl, sections, apiData) {
+  constructor(parentEl, sections, apiData, phaseTime) {
     this.wrapper = $("<div>");
     this.wrapper.addClass("buttonsSection");
 
@@ -10,21 +10,23 @@ class ButtonsSection {
     this.wrapper.append(this.addActiveSectionBtn);
     parentEl.append(this.wrapper);
 
-    this.addSectionBtn.click(() => this.addSection(parentEl, sections, apiData));
-    this.addActiveSectionBtn.click(() => this.addActiveSection(parentEl, sections, apiData));
+    this.addSectionBtn.click(() => this.addSection(parentEl, sections, apiData, phaseTime));
+    this.addActiveSectionBtn.click(() =>
+      this.addActiveSection(parentEl, sections, apiData, phaseTime)
+    );
   }
 
-  addSection = (page, sections, apiData) => {
-    const section = new Section(page, sections.length, sections[sections.length - 1]);
+  addSection = (page, sections, apiData, phaseTime) => {
+    const section = new Section(page, phaseTime, sections.length, sections[sections.length - 1]);
     sections.push(section);
     section.populate(apiData);
     section.isLastSection ? this.wrapper.remove() : page.append(this.wrapper);
     return section;
   };
 
-  addActiveSection = (page, sections, apiData) => {
-    const section = this.addSection(page, sections, apiData);
+  addActiveSection = (page, sections, apiData, phaseTime) => {
+    const section = this.addSection(page, sections, apiData, phaseTime);
     if (!section.isLastSection && !section.activeSection)
-      this.addActiveSection(page, sections, apiData);
+      this.addActiveSection(page, sections, apiData, phaseTime);
   };
 }
