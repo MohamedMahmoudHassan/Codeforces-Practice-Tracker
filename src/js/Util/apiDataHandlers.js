@@ -23,10 +23,15 @@ const getProblems = submissions => {
   return removeDuplicateProblems(ac);
 };
 
+const getRatedProblems = submissions => {
+  const ac = getProblems(submissions);
+  return ac.filter(({ problem }) => problem.rating);
+};
+
 const countProblems = submissions => getProblems(submissions).length;
 
 const getMaxRateProblem = submissions => {
-  const ac = getProblems(submissions);
+  const ac = getRatedProblems(submissions);
   if (!ac.length) return "_";
 
   let maxProblem = ac[0].problem;
@@ -34,16 +39,15 @@ const getMaxRateProblem = submissions => {
     if (problem.rating && problem.rating > maxProblem.rating) maxProblem = problem;
   });
 
-  if (!maxProblem.rating) return "_";
   return $("<span>").append(getProblemAsLink(maxProblem), ` - ${maxProblem.rating}`);
 };
 
 const getProblemsAverageRate = submissions => {
-  const ac = getProblems(submissions);
+  const ac = getRatedProblems(submissions);
   if (!ac.length) return 0;
 
   let ratingSum = 0;
-  ac.forEach(({ problem }) => (ratingSum += problem.rating ? problem.rating : 0));
+  ac.forEach(({ problem }) => (ratingSum += problem.rating));
   return Math.round(ratingSum / ac.length / 100) * 100;
 };
 
