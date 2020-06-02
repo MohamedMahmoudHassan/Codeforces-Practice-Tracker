@@ -1,6 +1,7 @@
 .warning {
   color: red;
   display: none;
+  font-size: 12px;
 }
 
 .active {
@@ -9,4 +10,18 @@
 
 .wrapper {
   width: 150px;
+  font-weight: bold;
+}
+
+#newPhasePeriod {
+  width: 75px;
+}
+
+.info {
+  font-size: 15px;
+  color: green;
+}
+
+.inputTitle {
+  font-size: 12px;
 }
