@@ -14,7 +14,7 @@ class SubmissionsChart {
     parentEl.append(this.wrapper);
   }
 
-  populate = submissions => {
+  populate(submissions) {
     const chartData = this.populatingFunc(submissions);
     new Chart(this.ctx, {
       type: "doughnut",
@@ -39,5 +39,5 @@ class SubmissionsChart {
         }
       }
     });
-  };
+  }
 }

@@ -14,7 +14,7 @@ class Section {
     parentEl.append(this.wrapper);
   }
 
-  populate = apiData => {
+  populate(apiData) {
     const sectionAPIData = sliceAPIData(
       apiData,
       this.phaseStartDate.timeStamp / 1000,
@@ -26,7 +26,9 @@ class Section {
     this.SubmissionsChart.populate(sectionAPIData.submissions);
     this.dataList.populate(sectionAPIData);
     if (this.prevSection) this.prevSection.compare(this);
-  };
+  }
 
-  compare = prevSection => this.dataList.compare(prevSection.dataList);
+  compare(prevSection) {
+    this.dataList.compare(prevSection.dataList);
+  }
 }

@@ -19,7 +19,7 @@ class ButtonsSection {
     );
   }
 
-  addSection = (page, sections, apiData, phaseTime) => {
+  addSection(page, sections, apiData, phaseTime) {
     const section = new Section(page, phaseTime, sections.length, sections[sections.length - 1]);
     sections.push(section);
     section.populate(apiData);
@@ -30,11 +30,11 @@ class ButtonsSection {
     }
     page.append(this.wrapper);
     return section;
-  };
+  }
 
-  addActiveSection = (page, sections, apiData, phaseTime) => {
+  addActiveSection(page, sections, apiData, phaseTime) {
     const section = this.addSection(page, sections, apiData, phaseTime);
     if (!section.isLastSection && !section.activeSection)
       this.addActiveSection(page, sections, apiData, phaseTime);
-  };
+  }
 }
