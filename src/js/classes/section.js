@@ -9,9 +9,7 @@ class Section {
     this.phaseStartDate = getPhaseStartDate(this.sectionIndex, phasePeriod);
     this.phaseEndDate = getPhaseEndDate(this.sectionIndex, phasePeriod);
 
-    this.SubmissionsChart = new SubmissionsChart(this.wrapper, populateChart);
-    this.header = new Header(this.wrapper, this);
-    this.dataList = new DataList(this.wrapper);
+    this.sectionInfo = new SectionInfo(this.wrapper, this);
 
     sections.push(this);
     parentEl.append(this.wrapper);
@@ -27,12 +25,11 @@ class Section {
     this.isLastSection = sectionAPIData.isLastSection;
     this.activeSection = sectionAPIData.submissions.length > 0;
 
-    this.SubmissionsChart.populate(sectionAPIData.submissions);
-    this.dataList.populate(sectionAPIData);
+    this.sectionInfo.populate(sectionAPIData);
     if (this.sectionIndex) sections[this.sectionIndex - 1].compare(this);
   }
 
   compare(prevSection) {
-    this.dataList.compare(prevSection.dataList);
+    this.sectionInfo.compare(prevSection.sectionInfo);
   }
 }
