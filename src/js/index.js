@@ -11,8 +11,13 @@ $(document).ready(function() {
     page.append(staticsTab);
   });
 
-  let phaseTime = 7;
-  chrome.storage.sync.get("phasePeriod", data => (phaseTime = data.phasePeriod || 7));
+  const app = {};
+  app.sections = [];
 
-  fetchAPIData(handle).then(apiData => loadStaticsTab(staticsTab, apiData, phaseTime));
+  chrome.storage.sync.get("phasePeriod", data => (app.phasePeriod = data.phasePeriod || 7));
+
+  fetchAPIData(handle).then(apiData => {
+    app.apiData = apiData;
+    loadStaticsTab(staticsTab, app);
+  });
 });

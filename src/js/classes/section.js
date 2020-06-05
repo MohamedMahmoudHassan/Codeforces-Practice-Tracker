@@ -1,20 +1,24 @@
 class Section {
-  constructor(parentEl, phaseTime, phaseIndex, prevSection) {
+  constructor(parentEl, app) {
+    const { phasePeriod, sections } = app;
+
     this.wrapper = $("<div>");
     this.wrapper.addClass("sectionWrapper");
 
-    this.phaseStartDate = getPhaseStartDate(phaseIndex, phaseTime);
-    this.phaseEndDate = getPhaseEndDate(phaseIndex, phaseTime);
+    this.sectionIndex = sections.length;
+    this.phaseStartDate = getPhaseStartDate(this.sectionIndex, phasePeriod);
+    this.phaseEndDate = getPhaseEndDate(this.sectionIndex, phasePeriod);
 
     this.SubmissionsChart = new SubmissionsChart(this.wrapper, populateChart);
-    this.header = new Header(this.wrapper, phaseIndex, this.phaseStartDate, this.phaseEndDate);
+    this.header = new Header(this.wrapper, this);
     this.dataList = new DataList(this.wrapper);
 
-    this.prevSection = prevSection;
+    sections.push(this);
     parentEl.append(this.wrapper);
   }
 
-  populate(apiData) {
+  populate(app) {
+    const { sections, apiData } = app;
     const sectionAPIData = sliceAPIData(
       apiData,
       this.phaseStartDate.timeStamp / 1000,
@@ -25,7 +29,7 @@ class Section {
 
     this.SubmissionsChart.populate(sectionAPIData.submissions);
     this.dataList.populate(sectionAPIData);
-    if (this.prevSection) this.prevSection.compare(this);
+    if (this.sectionIndex) sections[this.sectionIndex - 1].compare(this);
   }
 
   compare(prevSection) {

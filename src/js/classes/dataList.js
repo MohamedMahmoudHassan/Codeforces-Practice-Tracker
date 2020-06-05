@@ -13,8 +13,8 @@ class DataList {
     parentEl.append(this.wrapper);
   }
 
-  populate(apiData) {
-    this.dataElements.forEach(element => element.populate(apiData));
+  populate(sectionAPIData) {
+    this.dataElements.forEach(element => element.populate(sectionAPIData));
   }
 
   compare(prevDateList) {
