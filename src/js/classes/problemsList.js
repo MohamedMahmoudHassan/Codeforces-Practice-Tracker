@@ -1,8 +1,14 @@
 class ProblemsList {
   constructor(parentEl, section) {
-    this.wrapper = $("<ul>");
+    this.wrapper = $("<div>").attr("id", "problemsList");
+    this.ProblemsList = $("<ul>");
+
+    this.wrapper.append(this.ProblemsList);
     parentEl.append(this.wrapper);
   }
 
-  populate(sectionAPIData) {}
+  populate(sectionAPIData) {
+    this.data = getProblemsList(sectionAPIData.submissions);
+    this.data.forEach(problem => this.ProblemsList.append(problem));
+  }
 }

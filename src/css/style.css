@@ -40,6 +40,10 @@
   color: red;
 }
 
+#problemsList li {
+  margin-top: 7px;
+}
+
 .chartWrapper {
   padding: 3px;
   height: 230px;

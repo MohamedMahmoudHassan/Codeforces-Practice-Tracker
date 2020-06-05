@@ -23,6 +23,13 @@ const getProblems = submissions => {
   return removeDuplicateProblems(ac);
 };
 
+const getProblemsList = submissions => {
+  const ac = getProblems(submissions);
+  return ac.map(({ problem }) =>
+    $("<li>").append(getProblemAsLink(problem), ` - ${problem.rating}`)
+  );
+};
+
 const getRatedProblems = submissions => {
   const ac = getProblems(submissions);
   return ac.filter(({ problem }) => problem.rating);
