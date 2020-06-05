@@ -10,6 +10,7 @@ class Section {
     this.phaseEndDate = getPhaseEndDate(this.sectionIndex, phasePeriod);
 
     this.sectionInfo = new SectionInfo(this.wrapper, this);
+    this.problemsList = new ProblemsList(this.wrapper, this);
 
     sections.push(this);
     parentEl.append(this.wrapper);
@@ -26,10 +27,6 @@ class Section {
     this.activeSection = sectionAPIData.submissions.length > 0;
 
     this.sectionInfo.populate(sectionAPIData);
-    if (this.sectionIndex) sections[this.sectionIndex - 1].compare(this);
-  }
-
-  compare(prevSection) {
-    this.sectionInfo.compare(prevSection.sectionInfo);
+    this.problemsList.populate(sectionAPIData);
   }
 }

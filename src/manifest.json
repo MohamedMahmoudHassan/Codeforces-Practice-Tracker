@@ -11,6 +11,7 @@
         "js/lib/Chart.min.js",
         "js/classes/section.js",
         "js/classes/sectionInfo.js",
+        "js/classes/problemsList.js",
         "js/classes/buttonsSection.js",
         "js/classes/header.js",
         "js/classes/dataList.js",
