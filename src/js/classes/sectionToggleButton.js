@@ -1,7 +1,7 @@
 class SectionToggleButton {
   constructor(parentEl, section) {
     this.button = $("<button>");
-    this.buttonTextValues = ["Show Solved Problems", "Back"];
+    this.buttonTextValues = ["List of Solved Problems", "Back"];
     this.buttonTextId = 0;
 
     this.button.html(this.buttonTextValues[this.buttonTextId]);
