@@ -29,5 +29,10 @@ class Section {
 
     this.sectionInfo.populate(sectionAPIData);
     this.problemsList.populate(sectionAPIData);
+    if (this.sectionIndex) sections[this.sectionIndex - 1].compare(this);
+  }
+
+  compare(prevSection) {
+    this.sectionInfo.compare(prevSection.sectionInfo);
   }
 }

@@ -12,7 +12,6 @@ class SectionInfo {
   populate(sectionAPIData) {
     this.SubmissionsChart.populate(sectionAPIData.submissions);
     this.dataList.populate(sectionAPIData);
-    if (this.sectionIndex) sections[this.sectionIndex - 1].compare(this);
   }
 
   compare(prevSection) {
