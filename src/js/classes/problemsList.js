@@ -1,6 +1,7 @@
 class ProblemsList {
   constructor(parentEl, section) {
     this.wrapper = $("<div>").attr("id", "problemsList");
+    this.wrapper.addClass("hide");
     this.ProblemsList = $("<ul>");
 
     this.wrapper.append(this.ProblemsList);

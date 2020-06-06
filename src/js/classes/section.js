@@ -10,6 +10,7 @@ class Section {
     this.phaseEndDate = getPhaseEndDate(this.sectionIndex, phasePeriod);
 
     this.sectionInfo = new SectionInfo(this.wrapper, this);
+    this.toggleButton = new SectionToggleButton(this.wrapper, this);
     this.problemsList = new ProblemsList(this.wrapper, this);
 
     sections.push(this);

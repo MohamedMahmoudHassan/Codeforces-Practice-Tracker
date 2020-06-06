@@ -6,7 +6,7 @@ class SectionInfo {
     this.header = new Header(this.wrapper, section);
     this.dataList = new DataList(this.wrapper);
 
-//    parentEl.append(this.wrapper);
+    parentEl.append(this.wrapper);
   }
 
   populate(sectionAPIData) {
