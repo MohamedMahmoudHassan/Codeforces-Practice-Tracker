@@ -25,6 +25,7 @@ const getProblems = submissions => {
 
 const getProblemsList = submissions => {
   const ac = getProblems(submissions);
+  ac.sort((a, b) => (b.problem.rating || 1) - (a.problem.rating || 1));
   return ac.map(({ problem }) =>
     $("<li>").append(getProblemAsLink(problem), problem.rating ? ` - ${problem.rating}` : "")
   );
@@ -75,10 +76,13 @@ const getUserMaxRating = (ratings, currentRating) => {
   return currentRating;
 };
 
+const getContestType = contestId => (contestId > 9999 ? "gym" : "contest");
+
 const getProblemAsLink = ({ contestId, index, name }) => {
-  const href = `https://codeforces.com/problemset/problem/${contestId}/${index}`;
+  const href = `https://codeforces.com/${getContestType(contestId)}/${contestId}/problem/${index}`;
   const problemLink = $("<a>").text(`${index}. ${name}`);
   problemLink.attr("href", href);
+  problemLink.attr("target", "_blank");
   return problemLink;
 };
 
