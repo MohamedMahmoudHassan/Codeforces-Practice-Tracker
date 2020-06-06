@@ -26,7 +26,7 @@ const getProblems = submissions => {
 const getProblemsList = submissions => {
   const ac = getProblems(submissions);
   return ac.map(({ problem }) =>
-    $("<li>").append(getProblemAsLink(problem), ` - ${problem.rating}`)
+    $("<li>").append(getProblemAsLink(problem), problem.rating ? ` - ${problem.rating}` : "")
   );
 };
 

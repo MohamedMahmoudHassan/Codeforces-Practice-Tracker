@@ -7,8 +7,6 @@
   border-radius: 5px;
   padding: 15px;
   margin-bottom: 15px;
-  overflow: auto;
-  height: 240px;
 }
 
 .buttonsSection button {
@@ -17,11 +15,11 @@
 
 .headerDate {
   font-size: small;
-  margin-bottom: 15px;
+  margin-bottom: 23px;
 }
 
 .dataElement {
-  margin-top: 7px;
+  margin-bottom: 7px;
 }
 
 .dataElement span {
@@ -40,10 +38,6 @@
   color: red;
 }
 
-#problemsList li {
-  margin-top: 7px;
-}
-
 .chartWrapper {
   padding: 3px;
   height: 230px;
@@ -55,4 +49,22 @@
 
 .hide {
   display: none;
+}
+
+.problemsList {
+  height: 230px;
+  overflow: auto;
+}
+
+.problemsListColumn {
+  width: 50%;
+}
+
+.problemsListColumn.right {
+  margin-left: 7px;
+  float: right;
+}
+
+.problemsList li {
+  margin-bottom: 7px;
 }
