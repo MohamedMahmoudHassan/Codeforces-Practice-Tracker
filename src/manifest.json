@@ -25,14 +25,15 @@
         "js/addLoadingMessage.js",
         "js/loadStaticsTab.js",
         "js/fetchAPIData.js",
+        "js/userStatics.js",
         "js/index.js"
       ]
     }
   ],
   "icons": {
-    "128": "img/icon128.png",
-    "48": "img/icon48.png",
-    "16": "img/icon16.png"
+    "128": "img/icon128T.png"
+    // "48": "img/icon48.png",
+    // "16": "img/icon16.png"
   },
   "browser_action": {
     "default_popup": "./html/popup.html"
