@@ -4,7 +4,7 @@
   "version": "1.2.0",
   "content_scripts": [
     {
-      "matches": ["https://codeforces.com/profile/*"],
+      "matches": ["https://codeforces.com/*"],
       "css": ["css/style.css"],
       "js": [
         "js/lib/jquery-3.5.1.min.js",
@@ -21,10 +21,11 @@
         "js/Util/dateHandlers.js",
         "js/Util/dataPopulation.js",
         "js/Util/apiDataHandlers.js",
+        "js/Util/fetchAPIData.js",
         "js/addStaticsTabButton.js",
         "js/addLoadingMessage.js",
         "js/loadStaticsTab.js",
-        "js/fetchAPIData.js",
+        "js/listStatics.js",
         "js/userStatics.js",
         "js/index.js"
       ]
